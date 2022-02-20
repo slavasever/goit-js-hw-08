@@ -34,6 +34,11 @@ function handleInput() {
 function handleSubmit(evt) {
   evt.preventDefault();
 
+  if (!refs.form.elements.email.value || !refs.form.elements.message.value) {
+    alert('Всі поля мають бути заповнені');
+    return;
+  }
+
   console.log(loadFromLocalStorage('feedback-form-state'));
   localStorage.removeItem('feedback-form-state');
   refs.form.reset();
